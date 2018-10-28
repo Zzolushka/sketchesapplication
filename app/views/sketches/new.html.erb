@@ -1,0 +1,8 @@
+<h1>Добавление записи<h1>
+<%= form_for :sketch, url: sketches_path do |f| %>
+  <h3>Имя</h3>
+  <%= f.text_field :title ,class: "form-control"%>
+  <h3>Содержание</h3>
+  <%= f.text_area :text,class:  "form-control"%>
+  <%= f.submit class: "btn btn-outline-primary btn-large" %>
+<% end %>

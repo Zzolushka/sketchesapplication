@@ -1,0 +1,36 @@
+<h1 class="text-center">Страничка пользовтеля</h1>
+<br>
+<div class="row">
+  <div class="col-md-4 col-lg-4">
+    <img src="https://avatarfiles.alphacoders.com/983/98389.png" style="width:100%" class="rounded img-thumbnail">
+  </div>
+  <div class="col-md-4 col-lg-4 bg-light ">
+    <h3 class="font-weight-bold">Имя пользователя:</h3>
+    <h4 class="font-weight-normal"><%= @user.email %></h4>
+  </div>
+  <div class="col-md-4 col-lg-4 bg-light">
+
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-4 col-lg-4">
+    <h3>Сортировка и добавление</h3>
+    <%= link_to "Добаить запись", new_sketch_url , class: "btn btn-success btn" %>
+    <hr>
+  </div>
+  <div class="col-md-8 col-lg-8">
+    <h3>Все посты</h3>
+    <% @user.sketches.each do |sketch| %>
+      <div class="card border-dark mb-3" style="width: 100%">
+        <div class="card-header"><%= sketch.title %></div>
+        <div class="card-body text-dark">
+          <img src="https://i2.rozetka.ua/goods/4326733/39860688_images_4326733544.jpg" class="card-img-top">
+          <h5 class="card-title">Dark card title</h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

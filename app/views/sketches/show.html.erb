@@ -1,0 +1,22 @@
+<br>
+<h1><%= @sketch.title %></h1>
+<p><%= @sketch.text %></p>
+<hr>
+<%= link_to "Удалить запись" , sketch_path, method: :delete, class: "btn btn-danger" %>
+<%= link_to "Редактировать запись" , edit_sketch_path, class: "btn btn-warning" %>
+<hr>
+<h1>Комментарии</h1>
+<% @sketch.comments.each do |comment| %>
+  <div class="alert alert-light"
+    <p><strong><%= comment.username %>: </strong><%= comment.text %></p>
+  </div>
+<% end %>
+<hr>
+<h1>Добавление комментария<h1>
+<%= form_for ([@sketch, @sketch.comments.build]) do |f| %>
+  <h3>Пользователь</h3>
+  <%= f.text_field :username ,class: "form-control"%>
+  <h3>Комментарии</h3>
+  <%= f.text_area :text,class:  "form-control"%>
+  <%= f.submit("Добавить комментарий",{class: "btn btn-success btn-large"}) %>
+<% end %>
